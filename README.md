@@ -5,6 +5,10 @@
 1. [Array](#array)
     * [Remove duplicates](#remove-duplicate)
     * [Deconstruct syntax](#deconstruct-syntax)
+    * [Array contains value](#array-contains-value)
+        * [String](#contains-string)
+        * [Number](#contains-number)
+    * [Array Flat](#array-flat)
 2. [Console](#console)
     * [Format JSON output](#json-output)
     * [Console time](#time)
@@ -52,6 +56,64 @@
     // Output: "Computer"
   ```
 
+  &nbsp;
+
+  **Check if array contains value** <a id="array-contains-value"></a>
+
+  **String** <a id="contains-string"></a> 
+
+  [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+
+  ```javascript
+    const array = ['Audi', 'BMW', 'Volvo']
+    console.log(array.includes('Audi'))
+    // Output: true
+
+    // Note: This is case sensitive.
+    console.log(array.includes('audi'))
+    // Output: false
+
+    const result = array.map(e => e.toLocaleLowerCase()).includes('bmw')
+    console.log(result)
+    // Output: true
+  ```
+
+  **Number** <a id="contains-number"></a>
+
+  ```javascript
+    const arr = [1, 2, 3, 4, 5]
+
+    console.log(arr.includes(3))
+    // Output: true
+
+    console.log(arr.includes('3'))
+    // Output: false
+  ```
+
+  &nbsp;
+
+  **Flatten array** <a id="array-flat"></a>
+
+  The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+
+  [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+
+  ```javascript
+    const array = [1, [2, 3], 4]
+    console.log(array.flat())
+    // Output: [1, 2, 3, 4]
+
+    const arr = [1, [2,[3, 4], 5]]
+    console.log(arr.flat(1))
+    // Output: [1, 2, [3, 4], 5]
+
+    console.log(arr.flat(2))
+    // Output: [1, 2, 3, 4, 5]
+
+    // Infinity is also possible as a parameter.
+    console.log(arr.flat(Infinity))
+  ```
+
 ---
 
 ## Console <a id="console"></a>
@@ -67,6 +129,7 @@
     age: '30',
     city: 'Stockholm'
   }
+
   const stringify = JSON.stringify(user)
   console.log(stringify)
   // Output: "{'firstName':'John','lastName':'Doe','age':'30','city':'Stockholm'}"
@@ -186,10 +249,10 @@ The optional chaining operator provides a way to simplify accessing values throu
 
 ```javascript
   // Instead of writing:
-  let nested = obj.first && obj.first.second;
+  let nested = obj.first && obj.first.second
 
   // Write:
-  let nested = obj.first?.second;
+  let nested = obj.first?.second
 ```
 
 &nbsp;
@@ -211,7 +274,7 @@ Set default values if no values are provided. <a id="or"></a>
 
 ```
 
-**Note: This can cause issues if "age" is set to 0. The output will still be 31. The or operator will compute: (0 || 30 = 30).**
+**Note: This can cause issues if "age" is set to 0. The output will still be 30. The or operator will compute: (0 || 30 = 30).**
 
 **Replace the OR operator (||) with Nullish coalescing operator (??).** <a id="nullish"></a>
 
