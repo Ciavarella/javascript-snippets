@@ -3,10 +3,10 @@
 
 ## Table of Contents
 1. [Array](#array)
-    1. [Remove duplicates](#remove-duplicate)
-    2. [Deconstruct syntax](#deconstruct-syntax)
+    * [Remove duplicates](#remove-duplicate)
+    * [Deconstruct syntax](#deconstruct-syntax)
 2. [Console](#console)
-    1. [Format JSON output](#json-output)
+    * [Format JSON output](#json-output)
 
 ---
 
