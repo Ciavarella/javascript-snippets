@@ -2,13 +2,17 @@
 # JavaScript Snippets
 
 ## Table of Contents
-1. [Array](#Array)
-2. [Console](##Console)
+1. [Array](#array)
+    1. [Remove duplicates](#remove-duplicate)
+    2. [Deconstruct syntax](#deconstruct-syntax)
+2. [Console](#console)
+    1. [Format JSON output](#json-output)
 
-<details>
-  <summary>Array</summary>
+---
 
-  Remove duplicates from an Array
+## Array <a id="array"></a>
+
+  Remove duplicates from an Array <a id="remove-duplicate"></a>
 
   [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 
@@ -21,7 +25,7 @@
 
   &nbsp;
 
-  Deconstruct assignment syntax
+  Deconstruct assignment syntax <a id="deconstruct-syntax"> 
 
   [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
@@ -31,181 +35,12 @@
     console.log(hobby)
     // Output: "Computer"
   ```
-</details>
 
 ---
- # some more text
- ```
- dlaksjdas
- df
- dgäkdfö
- glksd
- fölgkdöf
- lgks
- dölfkgö
- sdlfkgös
- dlfkg
- södflgödslfkgsödlfkgösdlfkg
- sdöflkjsdf
- jsldkfjsd
- fjlskdjf
- sdlfkjsdf
- lsdfjlksdjf
- llSKDJflksdf
- ```
----
-# dajlksdhkjas
-```
-alskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjd
-alskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjdalskjdas
-jlaskdjas
-jlkasd
-jlasökd
-jlkasdjlk
-asjldajsd
-laskdjlkajsd
-jklaskjdlkasd
-jlasjdlkas
-jlaskdjlkasd
-jlkasdjlkjasd
-lkasjdlkjasd
-lkasjdlkajsd
-lkasjdlkasjd
-jlaskjd
-```
 
+## Console <a id="console"></a>
 
-&nbsp;
-
-## Console
-
-Format JSON string output
+Format JSON string output <a id="json-output"></a>
 
 [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
@@ -232,12 +67,3 @@ Format JSON string output
   }"
   */
 ```
-
-<details>
-  <summary>Click to expand</summary>
-  Hello
-
-  ```javascript
-    console.log('Expand snippet') 
-  ``` 
-</details>
