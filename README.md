@@ -9,6 +9,8 @@
         * [String](#contains-string)
         * [Number](#contains-number)
     * [Array Flat](#array-flat)
+    * [Get frequency](#frequency)
+    * [Generate range of numbers](#generate)
 2. [Console](#console)
     * [Format JSON output](#json-output)
     * [Console time](#time)
@@ -17,12 +19,14 @@
     * [And(&&)](#and)
     * [Implicit return](#implicit-return)
     * [Template literals](#template-literals)
+    * [If else](#if-else)
 4. [Other](#other)
     * [Optional chaining](#optional-chaining)
     * [Default values](#default)
         * [Or operator (||)](#or)
         * [Nullish coalescing operator (??)](#nullish)
         * [Parameters](#parameters)
+    * [Capitalize string](#capitalize)
 
 ---
 
@@ -38,7 +42,15 @@
     const arr = [1, 2, 3, 3, 3, 6, 7, 8, 8, 9]
     const filtered = [...new Set(arr)]
     console.log(filtered)
-    // Output: [1, 2, 3, 6, 7, 8, 9] 
+    // Output: [1, 2, 3, 6, 7, 8, 9]
+
+    /*
+      Note: This can be an issue with TypeScript.
+      If you get the error: "Type 'Set' is not an array type."
+      You can change your tsconfig "target": "ES6" (or higher)
+      Or you can use this syntax:
+    */
+    const filtered = Array.from(new Set(arr))
   ```
 
   &nbsp;
@@ -112,6 +124,41 @@
 
     // Infinity is also possible as a parameter.
     console.log(arr.flat(Infinity))
+  ```
+
+  &nbsp;
+
+  **Get frequency** <a id="frequency"></a>
+
+  ```javascript
+    const getFrequencyCounts = (strings) => strings.reduce(
+      (counts, string) => {
+        counts[string] ??= 0
+        counts[string]++
+        return counts
+      }, {})
+
+    const arr = ['hello', '1337', 'world', 'hello', 'hello', '1337']
+    const frequency = getFrequencyCounts(arr)
+    console.log(frequency)
+    // Output: {1337: 2, hello: 3, world: 1}
+  ```
+
+  &nbsp;
+
+  **Generate range of numbers** <a id="generate"></a>
+
+  ```javascript
+    const generateRange = (start, end) => Array.from(Array(end)).map((_,i) => i+start)
+    const generatedArr = generateRange(5,10);
+    console.log(generatedArr);
+    // Output: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    // If you don't need to set a start and just want to set the amount:
+    const generate = amount => [...Array(amount).keys()]
+    const arr = generate(5)
+    console.log(arr)
+    // Output: [0, 1, 2, 3, 4]
   ```
 
 ---
@@ -237,6 +284,27 @@ Avoid if statements with the and operator.
   const greeting = `Hello ${firstName} ${lastName}`
 ```
 
+&nbsp;
+
+**If else** <a id="if-else"></a>
+
+[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+
+The conditional (ternary) operator is frequently used as a shortcut for the if statement.
+
+```javascript
+  // Syntax
+  condition ? expressionIfTrue : expressionIfFalse
+
+  const greet = name => name ? `Hello ${name}` : 'Hello stranger'
+
+  greet()
+  // Output: 'Hello stranger'
+
+  greet('John')
+  // Output: 'Hello John'
+```
+
 ---
 
 ## Other <a id="other"></a>
@@ -311,4 +379,39 @@ Default function parameters allow named parameters to be initialized with defaul
   // Output: 'Hello'
   func()
   // Output: 'default'
+```
+
+&nbsp;
+
+**Capitalize string** <a id="capitalize"></a>
+
+Return string with the first letter capitalized.
+
+```javascript
+  const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
+
+  capitalize('hello')
+  // Output: 'Hello'
+```
+
+  This is also possible with CSS.
+
+```css
+  text-transform: capitalize;
+
+  /*
+    Note: With CSS sentences will look like this:
+    Input: "hello world, here i am"
+    Output: "Hello World, Here I Am"
+  */
+
+
+  /* To achive the just the first letter you can do the following: */
+
+  .someClass:fist-letter {
+    text-transform: capitalize; 
+  }
+  /*  Input: "hello world, here i am" */
+  /*  Output: "Hello world, here i am" */
+
 ```
