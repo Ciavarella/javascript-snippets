@@ -11,6 +11,7 @@
     * [Array Flat](#array-flat)
     * [Get frequency](#frequency)
     * [Generate range of numbers](#generate)
+    * [Merging Arrays](#merging)
 2. [Console](#console)
     * [Format JSON output](#json-output)
     * [Console time](#time)
@@ -20,6 +21,7 @@
     * [Implicit return](#implicit-return)
     * [Template literals](#template-literals)
     * [If else](#if-else)
+    * [Converting string into number](#convert)
 4. [Other](#other)
     * [Optional chaining](#optional-chaining)
     * [Default values](#default)
@@ -159,6 +161,23 @@
     const arr = generate(5)
     console.log(arr)
     // Output: [0, 1, 2, 3, 4]
+  ```
+
+  &nbsp;
+
+  **Merging Arrays** <a id="merging"></a>
+
+  [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+  Without spread syntax, to create a new array using an existing array as one part of it, the array literal syntax is no longer sufficient and imperative code must be used instead using a combination of push(), splice(), concat(), etc. With spread syntax this becomes much more succinct.
+
+  ```javascript
+    const numArr = [1, 2, 3]
+    const moreNums = [4, 5, 6]
+
+    const merged = [...numArr, ...moreNums]
+    console.log(merged)
+    // Output: [1, 2, 3, 4, 5, 6]
   ```
 
 ---
@@ -303,6 +322,24 @@ The conditional (ternary) operator is frequently used as a shortcut for the if s
 
   greet('John')
   // Output: 'Hello John'
+```
+
+&nbsp;
+
+**Coverting string into number** <a id="convert"></a>
+
+```javascript
+  const leet = "1337"
+  const decimal = "13.37"
+
+  const num = parseInt(leet)
+  // Output: 1337
+  const num2 = parseFloat(decimal)
+  // Output: 13.37
+
+  // Shorthand:
+  const num = +leet
+  const num2 = +decimal
 ```
 
 ---
