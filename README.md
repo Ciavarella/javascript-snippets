@@ -15,20 +15,26 @@
 2. [Console](#console)
     * [Format JSON output](#json-output)
     * [Console time](#time)
-3. [Shorthands](#shorthands)
+    * [Log with implicit return](#log-with-implicit)
+3. [Object](#object)
+    * [Destructing](#destructing)
+        * [Nested destructing](#nested-destructing)
+    * [Transform array to object](#array-into-object)
+4. [Shorthands](#shorthands)
     * [For loop](#forloop)
     * [And(&&)](#and)
     * [Implicit return](#implicit-return)
     * [Template literals](#template-literals)
     * [If else](#if-else)
     * [Converting string into number](#convert)
-4. [Other](#other)
+5. [Other](#other)
     * [Optional chaining](#optional-chaining)
     * [Default values](#default)
         * [Or operator (||)](#or)
         * [Nullish coalescing operator (??)](#nullish)
         * [Parameters](#parameters)
     * [Capitalize string](#capitalize)
+    * [Guard clause](#guard-clause)
 
 ---
 
@@ -182,6 +188,67 @@
 
 ---
 
+## Object <a id="object"></a>
+
+**Destructing** <a id="destructing"></a>
+
+[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+```javascript
+  const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30
+  }
+
+  const { firstName, age } = user
+
+  console.log(firstName)
+  // Output: 'John'
+
+  console.log(age)
+  // Output: 30
+```
+
+**Nested destructing** <a id="nested-destructing"></a>
+
+```javascript
+  const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+    education: {
+      school: 'Some School'
+      degree: 'Masters'
+    }
+  }
+
+  const { education: { degree, school } } = user
+
+  console.log(degree)
+  // Output: 'Masters'
+
+  console.log(school)
+  // Output: 'Some School'
+```
+
+&nbsp;
+
+**Transform array key-pair into object** <a id="array-into-object"></a>
+
+The Object.fromEntries() method transforms a list of key-value pairs into an object.
+
+[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries)
+
+```javascript
+  const arr = [['fistName', 'john'], ['lastName', 'Doe']]
+  const obj = Object.fromEntries(arr)
+  console.log(obj)
+  // Output: {fistName: "john", lastName: "Doe"}
+```
+
+---
+
 ## Console <a id="console"></a>
 
 **Format JSON string output** <a id="json-output"></a>
@@ -233,6 +300,16 @@ The console.timeEnd() stops a timer that was previously started by calling conso
   console.timeEnd("timer");
   // Output: timer: 0.2177734375 ms
 
+```
+
+&nbsp;
+
+**Console.log with implicit return** <a id="log-with-implicit"></a>
+
+Want to console.log() when having an arrow function with implicit return? Use comma operator.
+
+```javascript
+  const newItems = myItems.map((item) => console.log(item), transformItem(item));
 ```
 
 ---
@@ -451,4 +528,56 @@ Return string with the first letter capitalized.
   /*  Input: "hello world, here i am" */
   /*  Output: "Hello world, here i am" */
 
+```
+
+&nbsp;
+
+**Guard clause** <a id="guard-clause"></a>
+
+A guard clause is a way of handling conditional logic in the beginning of a function. This will return early from the function if a condition is met. This is a great way to refactor nested if else statements.
+
+```javascript
+
+  const getNumberTimesTwo = num => {
+    if(num != null) {
+      if(num < 0) {
+        return 0
+      } else {
+        return num * 2
+      }
+    } else {
+      return 0
+    }
+  }
+
+  console.log(getNumberTimesTwo(5))
+  // Output: 10
+  console.log(getNumberTimesTwo(0))
+  // Output: 0
+  console.log(getNumberTimesTwo())
+  // Output: 0
+
+  // Invert if statement and early return. This gets rid of else statements and improves readability but the same logic still applies.
+  const getNumberTimesTwo = num => {
+    if(num == null) return 0
+    if(num < 0) return 0
+    return num * 2
+  }
+
+
+  // This can be really good then writing higher order functions
+  const add = (num1, num2) => num1 + num2
+  const multiply = (num1, num2) => num1 * num2;
+
+  // Instead of adding duplicate guard clause we can share the logic with higher order functions.
+  const calc = (num1, num2, fn) => {
+    if(num1 == null) return
+    if(num2 == null) return
+    if(fn == null) return
+    return fn(num1, num2)
+  } 
+  
+  const result = calc(13, 37, add);
+  console.log(result)
+  // Output: 50
 ```
