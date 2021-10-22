@@ -16,6 +16,7 @@
     * [Format JSON output](#json-output)
     * [Console time](#time)
     * [Log with implicit return](#log-with-implicit)
+    * [Trace who called log](#where-was-log-called-from)
 3. [Object](#object)
     * [Destructing](#destructing)
         * [Nested destructing](#nested-destructing)
@@ -310,6 +311,22 @@ Want to console.log() when having an arrow function with implicit return? Use co
 
 ```javascript
   const newItems = myItems.map((item) => console.log(item), transformItem(item));
+```
+
+&nbsp;
+
+**Trace who called log** <a id="where-was-log-called-from"></a>
+
+Sometimes you want to figure out where is the log comming from and you can override the
+default log function to print out the location from stack trace.
+
+```javascript
+const log = console.log
+console.log = (...params) => {
+  const err = new Error()
+  log("Log was called ", err.stack?.split('\n')[2].trim())
+  log(...params)
+}
 ```
 
 ---
