@@ -403,7 +403,7 @@ The conditional (ternary) operator is frequently used as a shortcut for the if s
 
 &nbsp;
 
-**Coverting string into number** <a id="convert"></a>
+**Converting string into number** <a id="convert"></a>
 
 ```javascript
   const leet = "1337"
